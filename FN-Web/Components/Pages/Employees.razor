@@ -6,10 +6,7 @@
 
 <h1>Employees</h1>
 
-
 <ul>
-
-@* If no data yet, display "loading..." *@
 @if (employeeData != null) {
     @foreach (Employee emp in employeeData) {
         <li>@emp.name</li>
@@ -18,7 +15,6 @@
 else {
     <li>Loading...</li>
 }
-
 </ul>
 
 @code {
@@ -26,6 +22,7 @@ else {
     
     // After the page has prerendered, call the JS function getEmployeeData
     protected override async Task OnAfterRenderAsync(bool firstRender) {
+        
         // firstRender is true only when component is first rendered
         if (firstRender) {
             employeeData = await JS.InvokeAsync<Employee[]>("getEmployeeData");
@@ -35,7 +32,7 @@ else {
         }
     }
 
-    // Employee reflects the structure of the JS data
+    // Employee class matches the structure of the JS data
     public class Employee
     {
         public string name { get; set; }
