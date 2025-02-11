@@ -9,16 +9,19 @@
 <input value="@searchText" @oninput="UpdateSearch">
 <p>@searchText</p>
 
-<ul>
+<table>
 @if (employeeData != null) {
     @foreach (Employee emp in employeeData) {
-        <li>@emp.name</li>
+        <tr>
+            <td>@emp.name</td>
+            <td>@emp.department</td>
+        </tr>
     }
 } 
 else {
-    <li>Loading...</li>
+    <tr>loading...</tr>
 }
-</ul>
+</table>
 
 @code {
     private Employee[] employeeData;
