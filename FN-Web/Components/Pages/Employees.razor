@@ -6,6 +6,9 @@
 
 <h1>Employees</h1>
 
+<input value="@searchText" @oninput="UpdateSearch">
+<p>@searchText</p>
+
 <ul>
 @if (employeeData != null) {
     @foreach (Employee emp in employeeData) {
@@ -19,6 +22,7 @@ else {
 
 @code {
     private Employee[] employeeData;
+    string searchText = "";
     
     // After the page has prerendered, call the JS function getEmployeeData
     protected override async Task OnAfterRenderAsync(bool firstRender) {
@@ -30,6 +34,11 @@ else {
             // Re-renders the component now that data has been gathered
             StateHasChanged();
         }
+    }
+
+    private void UpdateSearch(ChangeEventArgs e) {
+        searchText = (string)e.Value!;
+        
     }
 
     // Employee class matches the structure of the JS data
