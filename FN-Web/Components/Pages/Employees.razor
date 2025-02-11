@@ -6,13 +6,13 @@
 
 <h1>Employees</h1>
 
-<input value="@searchText" @oninput="UpdateSearch">
-<button @onclick="() => searchText=string.Empty">Clear</button>
-<p>@searchText</p>
+@* <input value="@searchText" @oninput="UpdateSearch"> *@
+@* <button @onclick="() => searchText=string.Empty">Clear</button> *@
+@* <p>@searchText</p> *@
 
 <table>
 @if (employeeData != null) {
-    @foreach (Employee emp in employeeData) {
+    @foreach (Employee emp in filteredData) {
         <tr>
             <td>@emp.name</td>
             <td>@emp.department</td>
@@ -25,7 +25,8 @@ else {
 </table>
 
 @code {
-    private Employee[] employeeData;
+    private List<Employee> employeeData;
+    private List<Employee> filteredData;
     string searchText = "";
     
     // After the page has prerendered, call the JS function getEmployeeData
@@ -33,18 +34,20 @@ else {
         
         // firstRender is true only when component is first rendered
         if (firstRender) {
-            employeeData = await JS.InvokeAsync<Employee[]>("getEmployeeData");
-
+            employeeData = await JS.InvokeAsync<List<Employee>>("getEmployeeData");
+            filteredData = employeeData;
             // Re-renders the component now that data has been gathered
             StateHasChanged();
         }
     }
 
     // UpdateSearch is called each time Search input field changes
-    private void UpdateSearch(ChangeEventArgs e) {
+    @* private void UpdateSearch(ChangeEventArgs e) {
         searchText = (string)e.Value!;
+        filteredData = List<Employee>();
 
-    }
+
+    } *@
 
     // Employee class matches the structure of the JS data
     public class Employee
