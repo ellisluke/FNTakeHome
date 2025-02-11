@@ -24,14 +24,14 @@ Below, I will discuss several decisions I made while creating the functionality 
 
 ### Using JS Array Data
 `/wwwroot/employees.js` contains `function getEmployeeData()` that simply returns `const employees = [ ... ]`  
-The class `Employee` mirrors the structure of `const employees = [ ... ]`  
+The class `Employee` mirrors the structure of an element in `const employees = [ ... ]`  
 After render, `/Components/Pages/Employees.razor` invokes `getEmployeeData()`, converting the response to `List<Employee>`  
 
 I spent some time pondering how to store and access the given data.
 I imagine that the goal of this assignment is to simulate the action of querying an API that returns a JavaScript object. Rather than complicating the steps required to run my project, I decided to just store that data statically in `/wwwroot/employees.js` and pull the data from there using C#. Eventually, these steps would get replaced with an actual API call, but for the purpose of this front-end focused project, that would suffice. No database is needed as the only action required is a **READ** (no Create, Update, or Delete actions are necessary).  
 
 ### C# Array vs. List
-Initially, I used a C# array to store the data pulled from `employees.js`. After some further research, I decided to convert my arrays to lists due to the dynamic sizing that a list allows. Storing `employeeData` as an array and `filteredData` as a list may be an optimal solution, but for simplicity right now, both are a list.
+Initially, I used a C# array to store the data pulled from `employees.js`. After some further research, I decided to convert my arrays to lists due to the dynamic sizing that a list allows. Storing `employeeData` (which does not change after load) as an array and `filteredData` as a list may be an optimal solution, but for simplicity right now, both are a list.
 
 ### Language-Integrated Query (LINQ)
 ```
