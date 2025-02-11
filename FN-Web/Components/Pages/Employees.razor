@@ -6,13 +6,13 @@
 
 <h1>Employees</h1>
 
-@* <input value="@searchText" @oninput="UpdateSearch"> *@
-@* <button @onclick="() => searchText=string.Empty">Clear</button> *@
-@* <p>@searchText</p> *@
+<input value="@searchText" @oninput="UpdateSearch">
+<button @onclick="() => searchText=string.Empty">Clear</button>
+<p>@searchText</p>
 
 <table>
 @if (employeeData != null) {
-    @foreach (Employee emp in filteredData) {
+    @foreach (var emp in filteredData) {
         <tr>
             <td>@emp.name</td>
             <td>@emp.department</td>
@@ -42,12 +42,14 @@ else {
     }
 
     // UpdateSearch is called each time Search input field changes
-    @* private void UpdateSearch(ChangeEventArgs e) {
+    private void UpdateSearch(ChangeEventArgs e) {
         searchText = (string)e.Value!;
-        filteredData = List<Employee>();
-
-
-    } *@
+        
+        filteredData = employeeData
+                        .Where(employee =>  employee.name.ToLower().Contains(searchText.ToLower()) || 
+                                            employee.department.ToLower().Contains(searchText.ToLower()))
+                        .ToList();
+    }
 
     // Employee class matches the structure of the JS data
     public class Employee
