@@ -1,6 +1,48 @@
 ﻿@page "/employees"
 @rendermode InteractiveServer
+@inject IJSRuntime JS
 
 <PageTitle>Employees</PageTitle>
 
 <h1>Employees</h1>
+
+
+<ul>
+
+@* If no data yet, display "loading..." *@
+@if (employeeData != null) {
+    @foreach (Employee emp in employeeData) {
+        <li>@emp.name</li>
+    }
+} 
+else {
+    <li>Loading...</li>
+}
+
+</ul>
+
+@code {
+    private Employee[] employeeData;
+    
+    // After the page has prerendered, call the JS function getEmployeeData
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        // firstRender is true only when component is first rendered
+        if (firstRender) {
+            employeeData = await JS.InvokeAsync<Employee[]>("getEmployeeData");
+
+            // Re-renders the component now that data has been gathered
+            StateHasChanged();
+        }
+    }
+
+    // Employee reflects the structure of the JS data
+    public class Employee
+    {
+        public string name { get; set; }
+        public string role { get; set; }
+        public string department { get; set; }
+        public string email { get; set; }
+        public string profilePicture { get; set; }
+        public int yearsAtCompany { get; set; }
+    }
+}
