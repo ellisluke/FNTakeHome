@@ -45,6 +45,7 @@ else {
     private void UpdateSearch(ChangeEventArgs e) {
         searchText = (string)e.Value!;
         
+        // filter employeeData for any matches in the NAME or DEPARTMENT fields
         filteredData = employeeData
                         .Where(employee =>  employee.name.ToLower().Contains(searchText.ToLower()) || 
                                             employee.department.ToLower().Contains(searchText.ToLower()))
