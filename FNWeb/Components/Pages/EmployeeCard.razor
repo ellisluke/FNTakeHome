@@ -1,7 +1,16 @@
+@if ( YearsAtCompany <= 1 ) {
+    yearsClass = "border-new";
+}
+else if ( YearsAtCompany >= 5) {
+    yearsClass = "border-experienced";
+}
+else {
+    yearsClass = "border-medium";
+}
 
-
-<div>
+<div class="employee-card @yearsClass">
     <img 
+        class="employee-image"
         src="@ProfilePicture" 
         onerror="this.src='/images/default.jpg'"
         alt="Headshot of @Name"
@@ -14,6 +23,8 @@
 </div>
 
 @code {
+    private string yearsClass = "";
+
     [Parameter]
     public string Name { get; set; }
     
