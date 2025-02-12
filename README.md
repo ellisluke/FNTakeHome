@@ -4,7 +4,7 @@
 ## Running the project
 1. Clone or Download the Project from GitHub
 2. Open a terminal in the root directory of the project
-3. Change directory to the folder FN-Web using the command `cd FN-Web`
+3. Change directory to the folder FN-Web using the command `cd FNWeb`
 4. Run the command `dotnet run`
 5. Go to [http://localhost:8000/](http://localhost:8000/) in your browser
 
