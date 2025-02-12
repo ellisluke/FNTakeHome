@@ -58,3 +58,14 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+#search-container {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#search-label {
+    visibility: hidden;
+    aria-hidden: false;
+    font-size: 0px;
+}

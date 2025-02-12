@@ -5,10 +5,16 @@
 <PageTitle>Employees</PageTitle>
 
 <h1>Employees</h1>
-
-<input value="@searchText" @oninput="UpdateSearch">
-<button @onclick="() => searchText=string.Empty">Clear</button>
-<p>@searchText</p>
+<div class="form-outline" id="search-container">
+    <label for="employee-search" id="search-label" class="form-label">Search</label>
+    <input 
+        value="@searchText" 
+        @oninput="UpdateSearch" 
+        id="employee-search" 
+        class="form-control-lg"
+    >
+    <button @onclick="() => searchText=string.Empty" class="btn btn-danger">Clear</button>
+</div>
 
 <div class="card-container row">
 @if (employeeData != null) {
