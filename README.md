@@ -15,7 +15,7 @@ I have listed below the most natural steps that influenced my approach to this a
 2. **Project Infrastructure** - Before learning the framework, I set up the GitHub Repository and this documentation page.
 3. **Learn .NET** - I decided to challenge myself and learn the C# / .NET framework for this assessment. My past experiences with web development and .NET's detailed documentation should make this fairly quick.
 4. **GitHub Issues** - After learning the basic structure of .NET, I will create GitHub Issues to serve as milestones for development, and these will also be basis for my branches.
-5. **Display Data** - Next, I aim to display a basic form of all the data. Doing this first will allow me to work on the styling with the actual data.
+5. **Display Data** - Next, I aim to display a basic form of all the data. Doing this first will allow me to work on the styling with the actual data. It also avoids the visual clutter and errors that can come from styling.
 6. **Hand-draw Front-end Designs** - I will draw several options for the front-end and decide on one to implement.
 7. **Accessible Implementation** - Last, I will build one of my hand-drawn designs with accessibility (color contrast, screen size, alt-text, etc.) in mind.
 
@@ -41,3 +41,18 @@ filteredData = employeeData.Where(employee =>
                     .ToList(); 
 ```
 At first, I used a `foreach` loop to attempt search functionality, but this ran into some errors I could not solve quickly. While looking through the [C# List Class Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-9.0), I noticed the `Where<TSource>()` method that "Filters a sequence of values based on a predicate." This seemed like a useful and more elegant alternative to a `foreach` loop. After some further reading, I had a working query that had an OR operator `||` in use, too! Creating this filtering function had a similar feel to an SQL query. 
+
+## Design Decisions
+### Drawing My Ideas
+![6 card idea sketches](/ReadmeImages/Sketches.jpg "Card Sketches")
+I quickly drafted six ideas for how to display the card and its data. I believe a grid system will be best as it is the most friendly for resizable functionality. I created these ideas with that grid system in mind. After considering the options for a little while, I think a variant of layout #2 best suits this data, and I will proceed with that one.
+
+### Screen Size Compatibility
+
+### WAVE Evaluation Tool
+
+## AI Usage Disclosure
+Generative AI tools were used throughout this project in the following ways.  
+
+1. I used Bing Copilot essentially as a complex search. Prompting it with complex questions or error messages helped me to quickly debug or add new features. Bing Copilot cites and hyperlinks its sources, so I would usually follow those links to read the more detailed documentation.
+2. I used [thispersonnotexist.org](https://thispersonnotexist.org/) to generate unique headshots of the employees to avoid images of real people. 
