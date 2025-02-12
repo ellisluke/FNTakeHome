@@ -1,4 +1,4 @@
-# FiscalNote Associate Software Engineer Take-Home Assessment
+# FN Associate Software Engineer Take-Home Assessment
 ### By Luke Ellis - lklfellis@gmail.com
 
 ## Running the project
@@ -49,7 +49,7 @@ At first, I used a `foreach` loop to attempt search functionality, but this ran 
 ### Drawing My Ideas
 ![6 card idea sketches](/ReadmeImages/Sketches.jpg "Card Sketches")  
 
-I quickly drafted six ideas for how to display the card and its data. I believe a grid system will be best as it is the most friendly for resizable functionality. I created these ideas with that grid system in mind. After considering the options for a little while, I think a variant of layout #2 best suits this data, and I will proceed with that one.
+I quickly drafted six ideas for how to display the card and its data. I believe a grid system will be best as it is the most friendly for resizable functionality. After considering the options for a little while, I think a variant of layout #2 best suits this data, and I will proceed with that one.
 
 ### Screen Size Compatibility
 I added three CSS `@media screen` rules to account for different screen sizes. At its largest, the grid of employee cards contains four cards in a row. For a vertical, mobile screen, the grid contains only one card per row.
