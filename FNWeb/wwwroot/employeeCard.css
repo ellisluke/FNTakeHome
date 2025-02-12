@@ -15,10 +15,13 @@
     position: relative;
     aspect-ratio: 9 / 12;
     transition: 0.2s;
+    background-color: white;
 }
 .employee-card:hover {
     scale: 1.03;
     transition: 0.3s;
+    transform: rotate(calc(4deg * var(--rot-scalar)));
+    /* transform: rotate(4deg); */
 }
 
 .border-new {
