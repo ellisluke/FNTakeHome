@@ -9,17 +9,17 @@ else {
 }
 
 <div class="employee-card @yearsClass">
+    <p class="card-name">@Name</p>
+    <p class="card-role">@Role in <strong>@Department</strong></p>
+
     <img 
         class="employee-image"
         src="/images/@ProfilePicture.Substring(ProfilePicture.LastIndexOf('/'))" 
         onerror="this.src='/images/default.jpg'"
         alt="Headshot of @Name"
     >
-    <p>@Name</p>
-    <p>@Role</p>
-    <p>@Department</p>
-    <p>@Email</p>
-    <p>@YearsAtCompany</p>
+    <p class="card-email">@Email</p>
+    <p class="card-years">@YearsAtCompany years at Example Inc.</p>
 </div>
 
 @code {
