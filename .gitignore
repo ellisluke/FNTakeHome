@@ -6,7 +6,7 @@ project.lock.json
 nupkg/
 
 # Visual Studio Code
-FN-Web/.vscode/
+FNWeb/.vscode/
 !.vscode/settings.json
 
 # Rider

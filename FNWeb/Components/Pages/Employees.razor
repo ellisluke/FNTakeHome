@@ -10,19 +10,21 @@
 <button @onclick="() => searchText=string.Empty">Clear</button>
 <p>@searchText</p>
 
-<table>
 @if (employeeData != null) {
     @foreach (var emp in filteredData) {
-        <tr>
-            <td>@emp.name</td>
-            <td>@emp.department</td>
-        </tr>
+        <EmployeeCard 
+            Name="@emp.name"
+            Role="@emp.role"
+            Department="@emp.department"
+            Email="@emp.email"
+            ProfilePicture="@emp.profilePicture"
+            YearsAtCompany="@emp.yearsAtCompany"
+        />
     }
 } 
 else {
-    <tr>loading...</tr>
+    <p>Loading...</p>
 }
-</table>
 
 @code {
     private List<Employee> employeeData;
