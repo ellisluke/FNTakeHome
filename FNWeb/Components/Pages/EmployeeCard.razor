@@ -8,7 +8,7 @@ else {
     yearsClass = "border-medium";
 }
 
-<div class="employee-card @yearsClass">
+<div class="employee-card @yearsClass" style="--rot-scalar: @randomVar">
     <p class="card-name">@Name</p>
     <p class="card-role">@Role in <strong>@Department</strong></p>
 
@@ -42,4 +42,17 @@ else {
     
     [Parameter]
     public int YearsAtCompany { get; set; }
+
+    protected override void OnInitialized() {
+        RandomRotationVar();
+    }
+
+    private double randomVar;
+
+    private void RandomRotationVar() {
+        Random rand = new Random();
+
+        // generates random double between -1 and 1
+        randomVar = (rand.NextDouble() * 2 - 1);
+    }
 }

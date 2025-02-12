@@ -14,9 +14,22 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     position: relative;
     aspect-ratio: 9 / 12;
+    transition: 0.2s;
+    background-color: white;
+}
+.employee-card:hover {
+    scale: 1.03;
+    transition: 0.3s;
+    transform: rotate(calc(4deg * var(--rot-scalar)));
+    /* transform: rotate(4deg); */
 }
 
 .border-new {
+    box-shadow: 0 0 5px rgba(255, 73, 73, 0.8), 
+                0 0 8px rgba(255, 73, 73, 0.8);
+}
+
+.border-new:hover {
     box-shadow: 0 0 5px rgba(255, 73, 73, 0.8), 
                 0 0 10px rgba(255, 73, 73, 0.8),
                 0 0 15px rgba(255, 73, 73, 0.8);
@@ -24,14 +37,25 @@
 
 .border-experienced {
     box-shadow: 0 0 5px rgba(255, 234, 0, 0.8), 
+                0 0 8px rgba(255, 234, 0, 0.8);
+}
+
+.border-experienced:hover {
+    box-shadow: 0 0 5px rgba(255, 234, 0, 0.8), 
                 0 0 10px rgba(255, 234, 0, 0.8),
                 0 0 15px rgba(255, 234, 0, 0.8);
 }
 
 .border-medium {
     box-shadow: 0 0 5px rgba(134, 134, 134, 0.8),
+                0 0 8px rgba(134, 134, 134, 0.8);
+                
+}
+
+.border-medium:hover {
+    box-shadow: 0 0 5px rgba(134, 134, 134, 0.8),
                 0 0 10px rgba(134, 134, 134, 0.8),
-                0 0 15px rgba(134, 134, 134, 0.8);
+                0 0 15px rgba(157, 157, 157, 0.8);
 }
 
 .card-name {
