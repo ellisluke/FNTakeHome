@@ -63,3 +63,11 @@ Generative AI tools were used throughout this project in the following ways.
 
 1. I used Bing Copilot essentially as a complex search. Prompting it with complex questions or error messages helped me to quickly debug or add new features. Bing Copilot cites and hyperlinks its sources, so I would usually follow those links to read the more detailed documentation.
 2. I used [thispersonnotexist.org](https://thispersonnotexist.org/) to generate unique headshots of the employees to avoid images of real people. 
+
+## Lessons Learned
+A.K.A. Things I would do differently next time
+- Do not include a hyphen in my root directory name (or any directory name). That could have been a much more costly mistake.
+- Make sure I am in the correct branch when making commits.
+- Double check that the .gitignore is ignoring everything it should.
+- `dotnet watch` is not perfect nor all-encompassing. Force refreshing it was the solution to many of my problems.
+- .NET actually has some very good error messages that often suggest what you are doing wrong.
