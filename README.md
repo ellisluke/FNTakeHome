@@ -5,30 +5,33 @@
 1. Clone or Download the Project from GitHub
 2. Open a terminal in the root directory of the project
 3. Change directory to the folder FN-Web using the command `cd FNWeb`
-4. Run the command `dotnet run`
-5. Go to [http://localhost:8000/](http://localhost:8000/) in your browser
+4. Run the command `dotnet run` (you must have .NET installed before this)
+5. Go to [http://localhost:8000/](http://localhost:8000/) in your browser if not redirected automatically
+
+## Disclaimer
+I made this README mostly for myself. It sort of served as a journal for my thought processes so I could remember what I did if asked about it later. I had also never used ASP.NET before this, so writing everything down like this will help me to remember it longer term. **I do not expect you to read this,** but you're welcome to if you're interested!
 
 ## Initial Thought Process
 I have listed below the most natural steps that influenced my approach to this assessment.
 
 1. **Read and Understand the problem** - I started by reading the PDF instructions and email several times, making note of all the requirements. 
 2. **Project Infrastructure** - Before learning the framework, I set up the GitHub Repository and this documentation page.
-3. **Learn .NET** - I decided to challenge myself and learn the C# / .NET framework for this assessment. My past experiences with web development and .NET's detailed documentation should make this fairly quick.
-4. **GitHub Issues** - After learning the basic structure of .NET, I will create GitHub Issues to serve as milestones for development, and these will also be basis for my branches.
-5. **Display Data** - Next, I aim to display a basic form of all the data. Doing this first will allow me to work on the styling with the actual data. It also avoids the visual clutter and errors that can come from styling.
-6. **Hand-draw Front-end Designs** - I will draw several options for the front-end and decide on one to implement.
+3. **Learn .NET** - I decided to challenge myself and learn the C# / .NET framework for this assessment. My past experiences with web development, C#, and .NET's detailed documentation should make this somewhat quick.
+4. **GitHub Issues** - After learning the basic structure of .NET, I will create GitHub Issues to serve as milestones for development, and these will also reflect my branches.
+5. **Display Data** - Next, I aim to display a basic form of all the data. Doing this first will allow me to work on the styling with the actual data later on. It also avoids the visual clutter and errors that can come from styling.
+6. **Hand-draw Front-end Designs** - I will draw several options for the employee cards and decide on one to implement.
 7. **Accessible Implementation** - Last, I will build one of my hand-drawn designs with accessibility (color contrast, screen size, alt-text, etc.) in mind.
 
 ## Data Decisions
 Below, I will discuss several decisions I made while creating the functionality of the Employees page.
 
 ### Using JS Array Data
-`/wwwroot/employees.js` contains `function getEmployeeData()` that simply returns `const employees = [ ... ]`  
-The class `Employee` mirrors the structure of an element in `const employees = [ ... ]`  
-After render, `/Components/Pages/Employees.razor` invokes `getEmployeeData()`, converting the response to `List<Employee>`  
+- `/wwwroot/employees.js` contains `function getEmployeeData()` that simply returns `const employees = [ ... ]`  
+- The C# class `Employee` mirrors the structure of an element in `const employees = [ ... ]`  
+- After first page render, `/Components/Pages/Employees.razor` invokes `getEmployeeData()`, converting the response to `List<Employee>`  
 
 I spent some time pondering how to store and access the given data.
-I imagine that the goal of this assignment is to simulate the action of querying an API that returns a JavaScript object. Rather than complicating the steps required to run my project, I decided to just store that data statically in `/wwwroot/employees.js` and pull the data from there using C#. Eventually, these steps would get replaced with an actual API call, but for the purpose of this front-end focused project, that would suffice. No database is needed as the only action required is a **READ** (no Create, Update, or Delete actions are necessary).  
+I imagine that the goal of this assignment is to simulate the action of querying an API that returns a JavaScript object. Rather than complicating the steps required to run my project by adding a separate JS server, I decided to just store that data statically in `/wwwroot/employees.js` and pull the data from there using C#. Eventually, these steps would get replaced with an actual API call, but for the purpose of this front-end focused project, that would suffice. No database is needed as the only action required is a **READ** (no Create, Update, or Delete actions are necessary).  
 
 ### C# Array vs. List
 Initially, I used a C# array to store the data pulled from `employees.js`. After some further research, I decided to convert my arrays to lists due to the dynamic sizing that a list allows. Storing `employeeData` (which does not change after load) as an array and `filteredData` as a list may be an optimal solution, but for simplicity right now, both are a list.
@@ -44,12 +47,16 @@ At first, I used a `foreach` loop to attempt search functionality, but this ran 
 
 ## Design Decisions
 ### Drawing My Ideas
-![6 card idea sketches](/ReadmeImages/Sketches.jpg "Card Sketches")
+![6 card idea sketches](/ReadmeImages/Sketches.jpg "Card Sketches")  
+
 I quickly drafted six ideas for how to display the card and its data. I believe a grid system will be best as it is the most friendly for resizable functionality. I created these ideas with that grid system in mind. After considering the options for a little while, I think a variant of layout #2 best suits this data, and I will proceed with that one.
 
 ### Screen Size Compatibility
+I added three CSS `@media screen` rules to account for different screen sizes. At its largest, the grid of employee cards contains four cards in a row. For a vertical, mobile screen, the grid contains only one card per row.
 
 ### WAVE Evaluation Tool
+![WAVE Accessibility Evaluation Score](/ReadmeImages/WAVEScore.png "WAVE Accessibility Score")
+I also ran several checks through the WAVE Accessibility tool (Chrome Extension) to make sure the webpage supports users with color blindness or screen readers. I used this tool to catch errors I would have missed, and by the end I passed all checks.
 
 ## AI Usage Disclosure
 Generative AI tools were used throughout this project in the following ways.  
