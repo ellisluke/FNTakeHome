@@ -13,7 +13,7 @@
         id="employee-search" 
         class="form-control-lg"
     >
-    <button @onclick="() => searchText=string.Empty" class="btn btn-danger">Clear</button>
+    <button @onclick="ClearSearch" class="btn btn-danger">Clear</button>
 </div>
 
 <div class="card-container row">
@@ -60,6 +60,12 @@ else {
                         .Where(employee =>  employee.name.ToLower().Contains(searchText.ToLower()) || 
                                             employee.department.ToLower().Contains(searchText.ToLower()))
                         .ToList();
+    }
+
+    // Runs when "Clear" button is pressed
+    private void ClearSearch() {
+        searchText = "";
+        UpdateSearch(new ChangeEventArgs { Value = "" });
     }
 
     // Employee class matches the structure of the JS data
