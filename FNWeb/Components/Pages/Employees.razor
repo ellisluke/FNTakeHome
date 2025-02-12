@@ -10,6 +10,7 @@
 <button @onclick="() => searchText=string.Empty">Clear</button>
 <p>@searchText</p>
 
+<div class="card-container row">
 @if (employeeData != null) {
     @foreach (var emp in filteredData) {
         <EmployeeCard 
@@ -25,6 +26,7 @@
 else {
     <p>Loading...</p>
 }
+</div>
 
 @code {
     private List<Employee> employeeData;
