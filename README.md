@@ -71,3 +71,4 @@ A.K.A. Things I would do differently next time
 - Double check that the .gitignore is ignoring everything it should.
 - `dotnet watch` is not perfect nor all-encompassing. Force refreshing it was the solution to many of my problems.
 - .NET actually has some very good error messages that often suggest what you are doing wrong.
+- Take the time to maximize DAW compatibility with the language/framework being used. My VS Code auto-fills/intellisense hurt more than helped throughout this project.
