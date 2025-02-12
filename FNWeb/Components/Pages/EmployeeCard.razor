@@ -11,7 +11,7 @@ else {
 <div class="employee-card @yearsClass">
     <img 
         class="employee-image"
-        src="@ProfilePicture" 
+        src="/images/@ProfilePicture.Substring(ProfilePicture.LastIndexOf('/'))" 
         onerror="this.src='/images/default.jpg'"
         alt="Headshot of @Name"
     >
